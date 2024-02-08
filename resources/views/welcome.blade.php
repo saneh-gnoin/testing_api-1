@@ -221,7 +221,7 @@
                         <p class="p-2">OAuth combines passwords and tokens for highly secure login access to any system. The server first requests a password and then asks for an additional token to complete the authorization process. It can check the token at any time and also over time with a specific scope and longevity.</p>
                     </div>
 
-                    <div class="section p-4" id="list_8">
+                    <div id="list_8" class="p-4 section">
                         <header class="bg-green-400 text-center p-4 text-white font-bold">What does the RESTful API server response contain?</header>
                         <h4 class="mt-2 p-2 font-b">Status line:</h4>
                         <p class="p-2">The status line contains a three-digit status code that communicates request success or failure. For instance, 2XX codes indicate success, but 4XX and 5XX codes indicate errors. 3XX codes indicate URL redirection.</p>
