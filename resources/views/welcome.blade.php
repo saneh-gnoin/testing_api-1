@@ -1,140 +1,364 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <title>Rest Api</title>
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('build/assets/app-uV8d6AZs.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+   <!-- tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+<body class="font-mono">
+    <!-- nav bar -->
+    @if (Route::has('login'))
+    <div class="row-span-full fixed sm:top-0 shadow  w-full sm:right-0 bg-transparent p-6 text-right z-10">
+        <a href="" class="font-bold text-white float-left">REST API CRUD</a>
+        @auth
+        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+        @else
+        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900">Log in</a>
 
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
-                </div>
+        @if (Route::has('register'))
+        <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 ">Register</a>
+        @endif
+        @endauth
 
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
+    </div>
+    @endif
+    <main class="border border-gray-900 h-screen grid place-content-center">
+    <!-- slider container -->    
+    <div class="slider-container">
+            <div class="slider-track ">
+            <!-- background video -->   
+            <video playsinline autoplay muted loop>
+                    <source src="{{asset('build/img/video (2160p).mp4')}}" type="video/mp4">
+                </video>
+                <!-- read more button -->
+                <p class="api_intro z-10 top-56 font-bold text-lime-50 w-72 absolute"> way of accessing web services in a simple and flexible way without having any processing.
+                @if (Route::has('login'))
+                @auth  
+                <button type="button" class="p-2 bg-blue-500 text-white font-bold" onclick="openModal()">Read more</button></p>
+            @else
+<button disabled="disabled" type="button" class="p-2 bg-gray-300 text-white font-bold cursor-not-allowed" title="Login to read more!">Read More</button>
+@endif
+@endauth
+            </div>
+<!-- slider img -->
+            <img class="slider-thumb" loading="lazy" id="image1" onclick="openModal()=window.scrollX({top:200,behaviour:'smooth'})" src="{{asset('build/img/apir.jpg')}}">
+            <img class="slider-thumb" loading="lazy" id="image2" src="{{asset('build/img/db.jpeg')}}">
+            <img class="slider-thumb" loading="lazy" id="image3" src="{{asset('build/img/O-que-e-CRUD-740x414.webp')}}">
+            <img class="slider-thumb" loading="lazy" id="image4" src="{{asset('build/img/client.jpeg')}}">
+            <div class="value font-bold text-lime-600 text-6xl absolute text-shadow"></div>
+        </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900">Documentation</h2>
-
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900">Vibrant Ecosystem</h2>
-
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 group-hover:stroke-gray-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
-                            </a>
-                        </div>
+        <!-- modal -->
+        <div class="w-full h-full hidden place-items-center z-20 absolute " id="modal">
+            <div class="modal relative flex w-full h-full md:w-3/4 md:h-3/4 overflow-y-auto bg-blue-500 opacity-80  ">
+                <button onclick="closeModal()" class="float-right text-3xl text-white font-bold fixed">x</button>
+                <section class=" w-full p-4 md:p-0 text-white">
+                    <div id="list_1" class=" section p-4">
+                        <header class="bg-green-400 text-center p-4 text-white font-bold">What is API?</header>
+                        <p class="p-2">An <mark>Application Programming Interface</mark> (API) defines the rules that you
+                            must
+                            follow to communicate with other software systems. Developers expose or create APIs so that
+                            other
+                            applications can communicate with their applications programmatically. For example, the
+                            timesheet
+                            application exposes an API that asks for an employee's full name and a range of dates. When it
+                            receives this information, it internally processes the employee's timesheet and returns the
+                            number of
+                            hours worked in that date range.</p>
+                        <h3 class="mt-2 p-2 font-bold">Clients:</h3>
+                        <p class="p-2"><mark>Clients are users who want to access information from the web.</mark> The
+                            client
+                            can be a person or a software system that uses the API. For example, developers can write
+                            programs
+                            that access weather data from a weather system. Or you can access the same data from your
+                            browser
+                            when you visit the weather website directly.</p>
+                        <h3 class="mt-2 p-2 font-bold">Resources:</h3>
+                        <p class="p-2"><mark>Resources are the information that different applications provide to their
+                                clients.</mark> Resources can be images, videos, text, numbers, or any type of data. The
+                            machine
+                            that gives the resource to the client is also called the server. Organizations use APIs to
+                            share
+                            resources and provide web services while maintaining security, control, and authentication. In
+                            addition, APIs help them to determine which clients get access to specific internal
+                            resources.</p>
                     </div>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                    <div id="list_2" class=" section p-4">
+                        <header class="bg-green-400 text-center p-4 text-white font-bold">What is RESTful API?</header>
+                        <p class="p-2"><mark>RESTful API is an interface that two computer systems use to exchange information securely over the internet.</mark> Most business applications have to communicate with other internal and third-party applications to perform various tasks. For example, to generate monthly payslips, your internal accounts system has to share data with your customer's banking system to automate invoicing and communicate with an internal timesheet application. RESTful APIs support this information exchange because they follow secure, reliable, and efficient software communication standards.</p>
                     </div>
-                </div>
+
+                    <div id="list_3" class="p-4 section">
+                        <header class="bg-green-400 text-center p-4 text-white font-bold">What is REST?</header>
+                        <p class="p-2"><mark>Representational State Transfer</mark> (REST) is a software architecture
+                            that
+                            imposes conditions on how an API should work. REST was initially created as a guideline to
+                            manage
+                            communication on a complex network like the internet. You can use REST-based architecture to
+                            support high-performing and reliable communication at scale. You can easily implement and
+                            modify it,
+                            bringing visibility and cross-platform portability to any API system.</p>
+                        <p class="p-2 mt-1">API developers can design APIs using several different architectures. APIs
+                            that
+                            follow the REST architectural style are called REST APIs. Web services that implement REST
+                            architecture are called RESTful web services. The term RESTful API generally refers to RESTful
+                            web
+                            APIs. However, you can use the terms REST API and RESTful API interchangeably.<br> Uniform
+                            interface
+                            imposes four architectural constraints:</p>
+                        <h3 class="mt-2 p-2 font-bold">Uniform interface:</h3>
+                        <p class="p-2"><mark>The uniform interface is fundamental to the design of any RESTful
+                                webservice.</mark> It indicates that the server transfers information in a standard
+                            format.
+                            The
+                            formatted resource is called a representation in REST. This format can be different from the
+                            internal
+                            representation of the resource on the server application. For example, the server can store
+                            data as
+                            text but send it in an HTML representation format.</p>
+                        <ul class="p-2">
+                            <li>1. Requests should identify resources. They do so by using a uniform resource
+                                identifier.</li>
+                            <li>2. Clients have enough information in the resource representation to modify or delete
+                                the
+                                resource if they want to. The server meets this condition by sending metadata that
+                                describes
+                                the resource further.</li>
+                            <li>3. Clients receive information about how to process the representation further. The
+                                server
+                                achieves this by sending self-descriptive messages that contain metadata about how the
+                                client
+                                can best use them.</li>
+                            <li>4. Clients receive information about all other related resources they need to complete a
+                                task.
+                                The server achieves this by sending hyperlinks in the representation so that clients can
+                                dynamically discover more resources.</li>
+                        </ul>
+                        <h3 class="mt-2 p-2 font-bold">Statelessness:</h3>
+                        <p class="p-2">In REST architecture,<mark> statelessness refers to a communication method in which the server completes every client request independently of all previous requests.</mark> Clients can request resources in any order, and every request is stateless or isolated from other requests. This REST API design constraint implies that the server can completely understand and fulfill the request every time. </p>
+                        <h3 class="mt-2 p-2 font-bold">Layered system:</h3>
+                        <p class="p-2">In a layered system architecture, <mark>the client can connect to other authorized intermediaries between the client and server, and it will still receive responses from the server.</mark> Servers can also pass on requests to other servers. You can design your RESTful web service to run on several servers with multiple layers such as security, application, and business logic, working together to fulfill client requests. These layers remain invisible to the client.</p>
+                        <h3 class="mt-2 p-2 font-bold">Cacheability:</h3>
+                        <p class="p-2">RESTful web services support caching, which is <mark>the process of storing some responses on the client or on an intermediary to improve server response time.</mark> For example, suppose that you visit a website that has common header and footer images on every page. Every time you visit a new website page, the server must resend the same images. To avoid this, the client caches or stores these images after the first response and then uses the images directly from the cache. RESTful web services control caching by using API responses that define themselves as cacheable or noncacheable.</p>
+                        <h3 class="mt-2 p-2 font-bold">Code on demand:</h3>
+                        <p class="p-2">In REST architectural style, servers can temporarily extend or customize client functionality by transferring software programming code to the client. For example, when you fill a registration form on any website, your browser immediately highlights any mistakes you make, such as incorrect phone numbers. It can do this because of the code sent by the server.</p>
+                    </div>
+
+                    <div id="list_4" class="p-4 section">
+                        <header class="bg-green-400 text-center p-4 text-white font-bold">What are benefits of RESTful API?</header>
+                        <h3 class="mt-2 p-2 font-bold">Scalability:</h3>
+                        <p class="p-2"><mark>Systems that implement REST APIs can scale efficiently because REST optimizes client-server interactions. Statelessness removes server load because the server does not have to retain past client request information.</mark> Well-managed caching partially or completely eliminates some client-server interactions. All these features support scalability without causing communication bottlenecks that reduce performance.</p>
+                        <h3 class="mt-2 p-2 font-bold">Flexibility:</h3>
+                        <p class="p-2">RESTful web services support total client-server separation. They simplify and decouple various server components so that each part can evolve independently. Platform or technology changes at the server application do not affect the client application. The ability to layer application functions increases flexibility even further. For example, developers can make changes to the database layer without rewriting the application logic.</p>
+                        <h3 class="mt-2 p-2 font-bold">Independence:</h3>
+                        <p class="p-2"><mark>REST APIs are independent of the technology used. You can write both client and server applications in various programming languages without affecting the API design.</mark> You can also change the underlying technology on either side without affecting the communication.</p>
+                    </div>
+
+                    <div id="list_5" class="p-4 section">
+                        <header class="bg-green-400 text-center p-4 text-white font-bold">How do RESTful APIs work?</header>
+                        <h4 class="mt-2 p-2 font-bold text-white"><mark>The basic function of a RESTful API is the same as browsing the internet. The client contacts the server by using the API when it requires a resource.</mark> API developers explain how the client should use the REST API in the server application API documentation. These are the general steps for any REST API call:</h3>
+                            <p class="p-2"><mark>1. The client sends a request to the server. The client follows the API documentation to format the request in a way that the server understands.</mark></p>
+                            <p class="p-2"><mark>2. The server authenticates the client and confirms that the client has the right to make that request.</mark></p>
+                            <p class="p-2"><mark>3. The server receives the request and processes it internally.</mark></p>
+                            <p class="p-2"><mark>4. The server returns a response to the client. The response contains information that tells the client whether the request was successful. The response also includes any information that the client requested.</mark></p>
+                            <p class="p-2 bg-red-400"><b>Note:</b>The REST API request and response details vary slightly depending on how the API developers design the API.</p>
+                    </div>
+
+                    <div id="list_6" class="p-4 section">
+                        <header class="bg-green-400 text-center p-4 text-white font-bold">What does the RESTful API client request contain?</header>
+                        <h4 class="mt-2 p-2 font-bold">Unique Resource Identifier(URI):</h4>
+                        <p class="p-2">The server identifies each resource with unique resource identifiers. For REST services, the server typically performs resource identification by using a Uniform Resource Locator (URL). The URL specifies the path to the resource. A URL is similar to the website address that you enter into your browser to visit any webpage. The URL is also called the request endpoint and clearly specifies to the server what the client requires.</p>
+                        <h4 class="mt-2 p-2 font-bold">Methods:</h4>
+                        <p class="p-2"><mark>Developers often implement RESTful APIs by using the Hypertext Transfer Protocol (HTTP).</mark> An HTTP method tells the server what it needs to do to the resource. The following are four common HTTP methods:</p>
+                        <h5 class="mt-2 p-2 font-bold">Get:</h5>
+                        <p class="p-2">Clients use GET to access resources that are located at the specified URL on the server. They can cache GET requests and send parameters in the RESTful API request to instruct the server to filter data before sending.</p>
+                        <h5 class="mt-2 p-2 font-bold">Post:</h5>
+                        <p class="p-2">Clients use POST to send data to the server. They include the data representation with the request. Sending the same POST request multiple times has the side effect of creating the same resource multiple times.</p>
+                        <h5 class="mt-2 p-2 font-bold">Put:</h5>
+                        <p class="p-2">Clients use PUT to update existing resources on the server. Unlike POST, sending the same PUT request multiple times in a RESTful web service gives the same result.</p>
+                        <h5 class="mt-2 p-2 font-bold">Delete:</h5>
+                        <p class="p-2">Clients use the DELETE request to remove the resource. A DELETE request can change the server state. However, if the user does not have appropriate authentication, the request fails.</p>
+                        <h4 class="mt-2 p-2 font-bold">HTTP headers:</h4>
+                        <p class="p-2"><mark>Request headers are the metadata exchanged between the client and server.</mark> For instance, the request header indicates the format of the request and response, provides information about request status, and so on.</p>
+                        <h5 class="mt-2 p-2 font-bold">Data:</h5>
+                        <p class="p-2"><mark>REST API requests might include data for the POST, PUT, and other HTTP methods to work successfully.</mark></p>
+                        <h5 class="mt-2 p-2 font-bold">Parameters:</h5>
+                        <p class="p-2"><mark>RESTful API requests can include parameters that give the server more details about what needs to be done.</mark> The following are some different types of parameters:</p>
+                        <li class="p-2">Path parameters that specify URL details.</li>
+                        <li class="p-2">Query parameters that request more information about the resource.</li>
+                        <li class="p-2">Cookie parameters that authenticate clients quickly.</li>
+                    </div>
+
+                    <div id="list_7" class="p-4 section">
+                        <header class="bg-green-400 text-center p-4 text-white font-bold">What are RESTful API authentication methods?</header>
+                        <p class="p-2">A RESTful web service must authenticate requests before it can send a response. Authentication is the process of verifying an identity. For example, you can prove your identity by showing an ID card or driver's license. Similarly, RESTful service clients must prove their identity to the server to establish trust.
+
+                            <br>RESTful API has four common authentication methods:</br>
+                        </p>
+                        <h4 class="mt-2 p-2 font-b">HTTP Authentication:</h4>
+                        <p class="p-2">
+                            <mark>HTTP defines some authentication schemes that you can use directly when you are implementing REST API. The following are two of these schemes:</mark>
+                        </p>
+                        <h5 class="mt-2 p-2">Basic Authentication</h5>
+                        <p class="p-2">In basic authentication, the client sends the user name and password in the request header. It encodes them with base64, which is an encoding technique that converts the pair into a set of 64 characters for safe transmission.</p>
+                        <h5 class="mt-2 p-2">Bearer authentication</h5>
+                        <p class="p-2">The term bearer authentication refers to the process of giving access control to the token bearer. The bearer token is typically an encrypted string of characters that the server generates in response to a login request. The client sends the token in the request headers to access resources.</p>
+                        <h5 class="p-2 mt-2 font-bold">API keys</h5>
+                        <p class="p-2">API keys are another option for REST API authentication. In this approach, the server assigns a unique generated value to a first-time client. Whenever the client tries to access resources, it uses the unique API key to verify itself. API keys are less secure because the client has to transmit the key, which makes it vulnerable to network theft.</p>
+                        <h5 class="p-2 mt-2 font-bold">OAuth</h5>
+                        <p class="p-2">OAuth combines passwords and tokens for highly secure login access to any system. The server first requests a password and then asks for an additional token to complete the authorization process. It can check the token at any time and also over time with a specific scope and longevity.</p>
+                    </div>
+
+                    <div class="section p-4" id="list_8">
+                        <header class="bg-green-400 text-center p-4 text-white font-bold">What does the RESTful API server response contain?</header>
+                        <h4 class="mt-2 p-2 font-b">Status line:</h4>
+                        <p class="p-2">The status line contains a three-digit status code that communicates request success or failure. For instance, 2XX codes indicate success, but 4XX and 5XX codes indicate errors. 3XX codes indicate URL redirection.</p>
+                        <li class="p-2"><mark>200: Generic success response</mark></li>
+                        <li class="p-2"><mark>201: POST method success response</mark></li>
+                        <li class="p-2"><mark>400: Incorrect request that the server cannot process</mark></li>
+                        <li class="p-2"><mark>404: Resource not found</mark></li>
+                        <h4 class="mt-2 p-2 font-bold">Message body</h4>
+                        <p class="p-2">The response body contains the resource representation. The server selects an appropriate representation format based on what the request headers contain. Clients can request information in XML or JSON formats, which define how the data is written in plain text. For example, if the client requests the name and age of a person named John, the server returns a JSON representation as follows:</p>
+                        <p class="p-2 bg-yellow-400"><b>eg:</b>'{"name":"John", "age":30}'</p>
+                        <h4 class="mt-2 p-2 font-bold">Headers:</h4>
+                        <p class="p-2">The response also contains headers or metadata about the response. They give more context about the response and include information such as the server, encoding, date, and content type.</p>
+
+                    </div>
+                </section>
+
             </div>
         </div>
-    </body>
+    </main>
+    <!-- slider and modal script -->
+    <script>
+        const sliderTrack = document.querySelector('.slider-track');
+        const sliderThumbs = document.querySelectorAll('.slider-thumb');
+        const valueDisplay = document.querySelector('.value');
+
+        let angle = 0;
+
+        sliderTrack.addEventListener('mousedown', mousedownHandler);
+        sliderTrack.addEventListener('touchstart', mousedownHandler);
+
+        function mousedownHandler(event) {
+            document.addEventListener('mousemove', mousemoveHandler);
+            document.addEventListener('touchmove', mousemoveHandler);
+            document.addEventListener('mouseup', mouseupHandler);
+            document.addEventListener('touchend', mouseupHandler);
+
+            const sliderCenterX = sliderTrack.getBoundingClientRect().left + sliderTrack.offsetWidth / 2;
+            const sliderCenterY = sliderTrack.getBoundingClientRect().top + sliderTrack.offsetHeight / 2;
+
+            const clientX = event.clientX || event.touches[0].clientX;
+            const clientY = event.clientY || event.touches[0].clientY;
+
+            const deltaX = clientX - sliderCenterX;
+            const deltaY = clientY - sliderCenterY;
+
+            angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI) + 90;
+
+            moveSliderThumbs(angle);
+        }
+
+        function mousemoveHandler(event) {
+            const clientX = event.clientX || event.touches[0].clientX;
+            const clientY = event.clientY || event.touches[0].clientY;
+
+            const deltaX = clientX - sliderTrack.getBoundingClientRect().left - sliderTrack.offsetWidth / 2;
+            const deltaY = clientY - sliderTrack.getBoundingClientRect().top - sliderTrack.offsetHeight / 2;
+
+            angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI) + 90;
+
+            moveSliderThumbs(angle);
+        }
+
+        function mouseupHandler() {
+            document.removeEventListener('mousemove', mousemoveHandler);
+            document.removeEventListener('touchmove', mousemoveHandler);
+            document.removeEventListener('mouseup', mouseupHandler);
+            document.removeEventListener('touchend', mouseupHandler);
+        }
+
+        function moveSliderThumbs(angle) {
+            const radius = sliderTrack.offsetWidth / 2;
+            const thumbRadius = 25; // Half of thumb width or height
+
+            sliderThumbs.forEach((thumb, index) => {
+                const thumbAngle = angle + 90 * index;
+                const xPos = radius * Math.cos(thumbAngle * Math.PI / 180) + radius - thumbRadius;
+                const yPos = radius * Math.sin(thumbAngle * Math.PI / 180) + radius;
+                thumb.style.left = `${xPos}px`;
+                thumb.style.top = `${yPos}px`;
+                // thumb.style.transform = `rotate(${thumbAngle}deg)`;
+            });
+
+            const value = Math.round(angle / 360 * 100); // Calculate value based on angle
+            valueDisplay.textContent = 'REST API'; // Update the value display
+        }
+
+        function autoMoveSlider() {
+            angle += 0.1; // Increment the angle for continuous movement
+            // onmouseover()=angle => 0
+            moveSliderThumbs(angle);
+
+            // Call the function recursively with a delay
+            requestAnimationFrame(autoMoveSlider);
+        }
+
+        // Start the automatic movement when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            autoMoveSlider();
+        });
+
+
+
+
+        function highlightMenuItem(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+
+        // document.addEventListener('scroll', handleScrollSpy);
+
+        const listItems = document.querySelectorAll('.topics li');
+
+        function setActiveItem(item) {
+            listItems.forEach((li) => {
+                li.classList.remove('active');
+            });
+            item.classList.add('active');
+        }
+
+        listItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                setActiveItem(item);
+            });
+        });
+
+        // close modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // open modal
+        function openModal() {
+            document.getElementById('modal').style.display = 'grid';
+        }
+    </script>
+</body>
 </html>
