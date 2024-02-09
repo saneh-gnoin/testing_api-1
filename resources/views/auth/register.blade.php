@@ -29,17 +29,6 @@
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
-            <div class="mt-4">
-                <x-label for="contact" value="{{ __('Contact') }}" />
-                <x-input id="contact" class="block mt-1 w-full" type="text" inputmode="number" name="contact" :value="old('contact')" required autocomplete="usercontact" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="address" value="{{ __('Address') }}" />
-                <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('contact')" required autocomplete="useraddress" />
-            </div>
-
-
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-label for="terms">
